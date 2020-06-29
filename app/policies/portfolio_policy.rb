@@ -1,0 +1,2 @@
+class PortfolioPolicy < ApplicationPolicy
+end

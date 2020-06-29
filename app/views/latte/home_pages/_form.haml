@@ -1,0 +1,37 @@
+%h4
+  Configuración general
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :name
+    .columns.small-24.medium-18= f.text_field :name
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :subtitle
+    .columns.small-24.medium-18= f.text_field :subtitle
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :services
+    .columns.small-24.medium-18= f.cktext_area :services, ckeditor: { toolbar: :latte, height: 400 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :projects
+    .columns.small-24.medium-18= f.cktext_area :projects, ckeditor: { toolbar: :latte, height: 400 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :whyus
+    .columns.small-24.medium-18= f.cktext_area :whyus, ckeditor: { toolbar: :latte, height: 400 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :ourprocess
+    .columns.small-24.medium-18= f.cktext_area :ourprocess, ckeditor: { toolbar: :latte, height: 400 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :brands
+    .columns.small-24.medium-18= f.cktext_area :brands, ckeditor: { toolbar: :latte, height: 400 }

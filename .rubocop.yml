@@ -1,0 +1,8 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/RescueStandardError:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false

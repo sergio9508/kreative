@@ -1,0 +1,2 @@
+class TecnologyPolicy < ApplicationPolicy
+end

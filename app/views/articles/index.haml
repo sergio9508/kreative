@@ -1,0 +1,29 @@
+= title 'Nuestro Blog'
+.articles-1
+  .container
+    .row.align-justify
+      .columns.small-24
+        %h1= t('site.article1.text1')
+        %h2.h1= t('site.article1.text2')
+.articles-2
+  .container
+    .row.align-justify.fth.post-row 
+      - @articles.each do |article|
+        .columns.medium-11.small-24.post
+          .article
+            = link_to article_url(article), rel: 'canonical' do
+              = image_tag article.main_image.image.url
+            %p.date= article.dateshort
+            .blog
+              = link_to article.category.to_s, article_url(article), class: 'category'
+              %h2
+                = article.name
+              .data
+                = raw article.content.split('</p>')[0]
+              = link_to 'Leer post', article_url(article), class: 'align-left read'
+    = will_paginate @articles
+.articles-3
+  .container
+    .row
+      .columns.small-24
+        = link_to 'Contactanos', "/#form", class: 'contact'

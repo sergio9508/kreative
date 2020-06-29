@@ -1,0 +1,36 @@
+
+- if f.object.class.respond_to?(:main_image?)
+  = f.fields_for :main_image do |ff|
+    = render partial: 'latte/main_images/form', locals: { f: ff }
+
+- if f.object.class.respond_to?(:cover?)
+  = f.fields_for :cover do |ff|
+    = render partial: 'latte/covers/form', locals: { f: ff }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :first_name
+    .columns.small-24.medium-18= f.text_field :first_name
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :last_name
+    .columns.small-24.medium-18= f.text_field :last_name
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :job
+    .columns.small-24.medium-18= f.text_field :job
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :linkedin
+    .columns.small-24.medium-18= f.text_field :linkedin
+
+- if f.object.class.respond_to?(:taggable?)
+  .control
+    .row.align-middle.align-justify
+      .columns.small-24.medium-5= f.label :tagging
+      .columns.small-24.medium-18
+        = f.text_field :tagging, value: f.object.plain_tagging, placeholder: 'Agregar tags', class: 'tagify'
+

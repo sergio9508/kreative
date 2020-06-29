@@ -1,0 +1,25 @@
+%footer
+  .container
+    .container-footer.row.align-justify
+      .columns.large-8.medium-10.small-24
+        = image_tag 'footer/cafeina.svg', class: 'cafeina-logo', alt: 'cafeina-digital-studio'
+        .address
+          = image_tag 'footer/location.svg', class: 'location'
+          %p
+            Edificio Callven, calle Circunvalación,
+            %br
+            No. 188, Colonia Escalón San Salvador 
+            CP, San Salvador 1101
+        = link_to '+ 503 2263 3041', 'tel:50322633041',class: 'purple-tel'
+      .columns.large-6.medium-8.small-24
+        .social
+          = link_to 'https://www.facebook.com/Somoscafeina', target: 'blank' do
+            = image_tag 'footer/facebook.svg'
+          = link_to 'https://twitter.com/somoscafeina', target:'blank' do
+            = image_tag 'footer/twitter.svg'
+          = link_to 'https://www.instagram.com/somos.cafeina/', target: 'blank' do
+            = image_tag 'footer/instagram.svg'
+          = link_to 'https://www.linkedin.com/company/cafe%C3%ADna-digital-studio', target: 'blank' do
+            = image_tag 'footer/linkedin.svg'
+        
+        = link_to 'Ver Mapa', 'https://goo.gl/maps/YQCQHJ1CxGsUU6Gd8', target: 'blank', class: 'map'

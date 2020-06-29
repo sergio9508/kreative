@@ -1,0 +1,21 @@
+.header
+  .row.align-middle
+    .columns
+      %h1
+        Crear
+        = t @item.class.to_s.underscore, scope: 'activerecord.models', count: 1
+
+    .columns.shrink
+      = link_to nil, data: { addcancel: true } do
+        %i.material-icons cancel
+
+= form_for [:latte, @item], url: url_for(action: :create, format: :json), remote: true, as: :item do |f|
+  .form
+    = render partial: 'form', locals: { f: f }
+    .control
+      .row.align-center.align-justify
+        .columns.small-24.medium-5
+        .columns.small-24.medium-18
+          = f.button type: :submit do
+            %i.material-icons save
+            Guardar

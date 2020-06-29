@@ -1,0 +1,41 @@
+%h4
+  Configuración general
+
+-# .control
+-#   .row.align-middle.align-justify
+-#     .columns.small-24.medium-5= f.label :name
+-#     .columns.small-24.medium-18= f.text_field :name
+
+- if f.object.class.respond_to?(:cover?)
+  = f.fields_for :cover do |ff|
+    = render partial: 'latte/covers/form', locals: { f: ff }
+
+- if f.object.class.respond_to?(:main_image?)
+  = f.fields_for :main_image do |ff|
+    = render partial: 'latte/main_images/form', locals: { f: ff }
+
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :content
+    .columns.small-24.medium-18= f.cktext_area :content, ckeditor: { toolbar: :latte, height: 300 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :description
+    .columns.small-24.medium-18= f.cktext_area :description, ckeditor: { toolbar: :latte, height: 150 }
+  
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :summary
+    .columns.small-24.medium-18= f.cktext_area :summary, ckeditor: { toolbar: :latte, height: 150 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :year
+    .columns.small-24.medium-18= f.number_field :year
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :proyect_count
+    .columns.small-24.medium-18= f.number_field :proyect_count

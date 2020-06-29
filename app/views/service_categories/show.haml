@@ -1,0 +1,48 @@
+.arrows-1
+  .container
+    .arrows
+      - if @Category.after[0]
+        = link_to service_category_url(@Category.after[0].slug.to_s) do
+          = image_tag 'service/Regresar.png'
+      - else
+        = link_to services_url('') do 
+          = image_tag 'service/Regresar.png'
+      - if @Category.before[0]
+        = link_to service_category_url(@Category.before[0].slug.to_s) do
+          = image_tag 'service/Siguiente.png'
+      - else
+        = link_to services_url('') do
+          = image_tag 'service/Siguiente.png'
+
+.service-1.image-bg
+  .container
+    .row.align-justify
+      .columns.large-14.small-24.small-order-2.large-order-1
+        %h1
+          = title = @service.name 
+        = raw @service.description
+      .columns.large-8.small-24.small-order-1.large-order-2
+        .img-circle
+          = image_tag @service.main_image.image.url.to_s
+.service-2.gallery
+  .container
+    - if @service.images.any?
+      .service-gallery
+        - @service.images.order(:priority).each do |image|
+          %figure
+            = link_to image.image.url, data: { size: "#{image.image_width}x#{image.image_height}" } do
+              = image_tag image.image.url(:medium)
+    = render partial: 'layouts/application/photoswipe'
+    :javascript
+      initPhotoSwipeFromDOM('.service-gallery')
+.services.line-top
+  .container
+    .row
+      .columns.large-24.align-center
+        %p.text-center
+          = t('site.service-category.text2')
+        .flex_link
+          = link_to '¿Hablamos de su proyecto?', root_url(anchor: :form), class: 'btn-service'
+        %p.text-center.talk
+          = link_to 'Nuestro Portafolio', portfolios_url, class: 'talk'
+

@@ -1,0 +1,3 @@
+#
+class ServiceCategoryPolicy < ApplicationPolicy
+end

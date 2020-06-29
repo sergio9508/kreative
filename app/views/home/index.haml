@@ -1,0 +1,176 @@
+.header-home
+  .container
+    .menu-home
+      .logo.animated.bounceInLeft
+        = link_to image_tag('cafeina.svg', alt: 'cafeina-digital-studio'), root_url, rel: 'canonical'
+      .menu-header.animated.bounceInRight
+        .hamburger
+          .line
+          .line
+          .line
+      %nav.animated.bounceInRight
+        %ul.nav-links
+          %li= link_to 'Servicios', services_url, rel: 'canonical'
+          %li= link_to 'Nosotros', abouts_url, rel: 'canonical'
+          %li= link_to 'Portafolio', portfolios_url, rel: 'canonical'
+          %li= link_to 'Blog', articles_url, rel: 'canonical'
+          %li= link_to 'Contact', '#coffeetalk', class: 'current', rel: 'nofollow'
+
+.home-1
+  .container
+    .row
+      .columns.small-24
+        .row.content.animated.bounceInUp
+          .columns.small-24.large-12
+            %h1= @home.name
+            %h2= @home.subtitle
+            = link_to 'Let\'s talk', '#coffeetalk', class: 'btn blue', rel: 'nofollow'
+      .characters
+        .woman.animated.bounceInRight
+          = image_tag 'pictures/cafeina-woman.svg', alt: 'cafeina-digital-studio-woman'
+        .man.animated.bounceInDown
+          = image_tag 'pictures/cafeina-man.svg', alt: 'cafeina-digital-studio-man'
+
+.home-2
+  .container
+    .row.align-middle.align-justify
+      .columns.small-24.large-13
+        .card
+          .sup-page
+            %ul{ 'class' => 'tab-img' }
+              %li
+                .bottom.red
+              %li
+                .bottom.yellow
+              %li
+                .bottom.green
+              %li{ 'class' => 'tab-search' }
+                .search
+            %ul{ 'class' => 'tabs' }
+              %li{ 'data-tab' => 'tab-tech', class: 'current' }
+                digital tech
+              %li{ 'data-tab' => 'tab-marketing' }
+                marketing
+              %li{ 'data-tab' => 'tab-app' }
+                app
+              %li.plus{ 'data-tab' => 'none' }
+                +
+          .page-content
+            .row.align-middle.tab-content.current#tab-tech
+              .columns.small-24.medium-8.icon
+                = image_tag 'icons/icon-robot.svg', alt: 'robot-cafeina-digital-studio', height: '', width: '', class: ''
+              .columns.small-24.medium-16
+                %h2= raw t('site.home2.text1')
+                .row
+                  - @service.each do |service|
+                    - if service.service.name.eql?('Desarrollo Web')
+                      .columns.small-12
+                        %p
+                          = link_to service.name.to_s, service
+            .row.align-middle.tab-content#tab-marketing
+              .columns.small-24.medium-8.icon
+                = image_tag 'icons/icon-like.svg', alt: 'like-cafeina-digital-studio'
+              .columns.small-24.medium-16
+                %h2= raw t('site.home2.text2')
+                .row
+                  - @service.each do |service|
+                    - if service.service.name.eql?('Marketing Digital')
+                      .columns.small-12
+                        %p
+                          = link_to service.name.to_s, service_category_url(service)
+            .row.align-middle.tab-content#tab-app
+              .columns.small-24.medium-8.icon
+                = image_tag 'icons/icon-phone.svg', alt: 'phone-cafeina-digital-studio'
+              .columns.small-24.medium-16
+                %h2= raw t('site.home2.text3')
+                .row
+                  - @service.each do |service|
+                    - if service.service.name.eql?('Desarrollo app móvil')
+                      .columns.small-12
+                        %p
+                          = link_to service.name, service_category_url(service)
+      .columns.small-24.large-11.align-self-top
+        .information.animated.bounceInLreft
+          %h3= t('site.home2.text4')
+          = raw @home.services
+          = link_to 'Quiero una consultoría', '#coffeetalk', class: 'btn white', rel: 'nofollow'
+
+- if @projects.any?
+  .home-3
+    .container
+      .row.align-middle
+        .columns.small-24.medium-16
+          %h3.h2= t('site.home3.text1')
+          = raw @home.projects
+        .columns.small-24
+          %h2= t('site.home3.text2')
+        .columns.small-24
+          .row.align-justify
+            - @projects.each do |project|
+              .columns.small-24.medium-7.large-5.projects.animated{ data: { anim: 'bounceInLeft' } }
+                .top-bar
+                  %ul{ 'class' => 'tab-img' }
+                    %li
+                      .bottom.red
+                    %li
+                      .bottom.yellow
+                    %li
+                      .bottom.green
+                    %li{ 'class' => 'tab-search' }
+                      .search
+                .image-content
+                  = image_tag(project.main_image.image.url)
+        .columns.small-24.center
+          = link_to 'Ver portafolio', portfolios_url, method: :get, class: 'btn-service'
+- if @brands.any?
+  .home-4
+    .row.text-center
+      .columns.small-24.animated.bounceInRight
+        %h2.brand-trust
+          = t('site.home4.text1')
+    .marquee
+      .brand.animated.bounceInUp
+        - 3.times do |i|
+          - @brands.each do |brand|
+            %center
+              = image_tag brand.main_image.image.url, title: brand.name
+
+.home-5
+  .container
+    .row.align-justify
+      .columns.small-24
+        %h2.text-center.animated.bounceInRight
+          Blog
+      - @articles.each do |article|
+        .columns.large-12.small-24.animated.blog.bounceInRight
+          .article.animated.bounceInLeft
+            = image_tag article.main_image.image.url
+            = link_to article.category.to_s, article_url(article), class: 'category'
+            %h2= article.name
+            .separated
+              - if article.content?
+                = raw article.content.split('</p>')[0]
+            = link_to 'Leer post', article_url(article), class: 'align-left'
+
+.home-6.animated.bounceInRight
+  .container
+    .row.align-center
+      .columns.large-12.small-24
+        .about-image= image_tag About.cover.image.url, alt: 'equipo-digital', title: 'Equipo de desarrollo'
+      .columns.large-12.small-24
+        .about-content
+          = raw About.content
+          = link_to 'Ver más sobre cafeína >', abouts_url, rel: 'canonical'
+
+.home-4.animated
+  .row.text-center
+    .columns.small-24
+      %h2= t('site.home4.text2')
+  .marquee
+    .brand
+      - 3.times do
+        - @tecnologies.each do |tecnology|
+          %center
+            = image_tag tecnology.main_image.image.url,title: tecnology.name
+
+= render partial: 'layouts/application/form'

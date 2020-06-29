@@ -1,0 +1,80 @@
+= title 'Servicios'
+.services-title
+  .container
+    .row.align-justify.align-middle
+      .columns.small-24.medium-12
+        %h1= t('site.service.text1')
+        %h2
+          = t('site.service.text2')
+          %span= t('site.service.text3')
+          = t('site.service.text4')
+      .columns.small-24.medium-20.low
+        %p= t('site.service.text5')
+      .columns.small-24.align-self-center
+        %p.ScrollTo
+          Scroll para explorar
+- @categories.each do |category|
+  - if category.priority == 1
+    .services.services-1
+      .container.animated{ data: { anim: 'bounceInLeft' } }
+        .row.align-justify
+          .columns.small-24.medium-12.large-7.imagen
+            %center
+              = image_tag category.main_image.image.to_s
+          .columns.small-24.medium-12.large-12.align-self-bottom.desarrollo
+            %h2
+              = raw category.service_name
+            %p.linea
+              = category.description
+            .row.links
+              - @services.each do |service|
+                - if service.service_id == category.id
+                  .columns.small-12
+                    %p
+                      = link_to service.name, service_category_url(service)
+  - if (category.priority % 2).zero?
+    .services.services-2
+      .container.animated{ data: { anim: 'bounceInRight' } }
+        .row.align-justify
+          .columns.small-24.medium-12.large-12.small-order-2.large-order-1.middle-order-1.align-self-bottom
+            %h2
+              = raw category.service_name
+            %p.linea
+              = category.description
+            .row.links
+              - @services.each do |service|
+                - if service.service_id == category.id
+                  .columns.small-12
+                    %p
+                      = link_to service.name, service_category_url(service)
+          .columns.small-24.medium-12.large-6.small-order-1.large-order-2.middle-order-2.imagen-1
+            %center
+              = image_tag category.main_image.image.url
+  - if (category.priority % 3).zero?
+    .services.services-3
+      .container.animated{ data: { anim: 'bounceInLeft' } }
+        .row.align-justify
+          .columns.small-24.medium-12.large-7.imagen
+            %center
+              = image_tag category.main_image.image.to_s
+          .columns.small-24.medium-12.large-12.align-self-bottom.desarrollo
+            %h2
+              = raw category.service_name
+            %p.linea
+              = category.description
+            .row.links
+              - @services.each do |service|
+                - if service.service_id == category.id
+                  .columns.small-12
+                    %p
+                      = link_to service.name, service_category_url(service)
+.services.line-top
+  .container
+    .row
+      .columns.large-24.align-center
+        %p.text-center
+          = t('site.service.text6')
+        .flex_link
+          = link_to '¿Hablamos de su proyecto?', root_url(anchor: :form), class: 'btn-service'
+        %p.text-center.talk
+          = link_to 'Nuestro Portafolio', portfolios_url, class: 'talk'

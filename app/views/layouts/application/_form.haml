@@ -1,0 +1,35 @@
+.form#form
+  .container
+    .row
+      .columns.small-24.large-12.align-self-middle
+        %h3{ id: 'coffeetalk'} 
+          ¿Nos tomamos un café?
+        %p 
+          Cuéntanos más sobre 
+          %strong
+            tu proyecto
+        .notice.hidden
+          Gracias por contactarnos, en un momento uno de nuestros representantes
+          se pondrá en contacto con usted.
+        
+        = form_for Contact.new, remote: true, html: { novalidate: true } do |f|
+          .control
+            = f.label 'name', 'Nombre'
+            = f.text_field :name, placeholder: 'Nombre y apellido'
+          .control
+            = f.label 'email', 'Correo'
+            = f.email_field :email, placeholder: 'Correo electrónico'
+          .control
+            = f.label 'phone', 'Teléfono'
+            = f.phone_field :phone, placeholder: 'Número de teléfono'
+          .control
+            = f.label 'country_id', 'País'
+            = f.select :country_id, @countries.map{ |o| [o.name, o.id] }, { include_blank: 'País' }, { required: true }
+          .control
+            = f.label 'content', 'Sobre su proyecto'
+            = f.text_area :content, placeholder: 'Escriba un poco de su proyecto o idea de negocio'
+          .control
+            = f.button type: :submit, name: nil, class: 'btn red', id: 'coffee-talk-btn' do
+              Enviar
+      .columns.large-12.coffee
+        = image_tag 'pictures/cafecito.svg', alt: 'coffee-cup-cafeina-digital-studio'

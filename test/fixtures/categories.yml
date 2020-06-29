@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: one
+  enabled: false
+  in_header: false
+  in_footer: false
+  priority: 1
+
+two:
+  category: two
+  enabled: false
+  in_header: false
+  in_footer: false
+  priority: 1

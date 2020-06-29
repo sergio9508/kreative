@@ -1,0 +1,153 @@
+li,
+.plus {
+  background: $dark-gray;
+  color: $dark-blue;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: $black;
+  margin: 0 .2em;
+  padding: .5em 1em;
+  text-transform: uppercase;
+
+  &.current {
+    background: $white;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 1em;
+    padding: .5em;
+  }
+}
+
+.plus {
+  color: $gray;
+  cursor: default;
+}
+
+.tab-content {
+  display: none;
+  min-height: 37vh;
+  @media #{$med} {
+    min-height: 0;
+  }
+  @media #{$tab} {
+    min-height: 42vh;
+  }
+  @media screen and (max-width: 600px) {
+    .icon {
+      text-align: center;
+    }
+  }
+  &.current {
+    display: flex;
+  }
+  img {
+    margin: 0 auto;
+    padding: 1em;
+    width: 90%;
+
+    @media screen and (max-width: 600px) {
+      max-width: 120px;
+      min-width: 120px;
+      padding: 0;
+    }
+  }
+  h2 {
+    font-size: 2.7em;
+    font-weight: $black;
+    padding: .5em 0;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.5em;
+    }
+  }
+  p {
+    color: $blue;
+    font-size: 1.2em;
+    line-height: 1;
+    margin: 0;
+    padding: .5em 0;
+    a {
+      &::before {
+        content: '-';
+        padding: 0 .3em 0 0;
+      }
+    }
+  }
+}
+
+.sup-page {
+  background: $gray;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  box-shadow: 0 25px 35px $dark-gray;
+  height: 6.25em;
+  width: 100%;
+}
+
+.tab-img {
+  display: flex;
+  padding: 1em 2em;
+  vertical-align: middle;
+
+  li {
+    background: none;
+    cursor: default;
+    padding: 0;
+    vertical-align: middle;
+  }
+}
+
+.bottom {
+  border-radius: 999px;
+  flex: 1;
+  height: 12px;
+  margin: .5em .2em;
+  width: 12px;
+
+  &.red {
+    background: $red;
+  }
+
+  &.yellow {
+    background: $yellow;
+  }
+
+  &.green {
+    background: $green;
+  }
+}
+
+.tab-search {
+  width: 100%;
+}
+
+.search {
+  background: $white;
+  border-radius: 10px;
+  flex: 2;
+  height: 24px;
+  width: 100%;
+}
+
+.card {
+  margin: 0 4em 5em 0;
+  transform: rotate(-2deg);
+
+  @media screen and (max-width: 1023px) {
+    margin: 0 2em;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
+    transform: rotate(0deg);
+  }
+}
+
+.page-content {
+  background: $white;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  box-shadow: 0 25px 35px $dark-gray;
+  padding: 1em;
+}

@@ -1,0 +1,23 @@
+%p
+  Buen día, aquí está la información recibida en el formulario de contacto de
+  somoscafeina.com
+
+%p
+  %div Nombre
+  %strong= @contact.try(:name) || '- -'
+
+%p
+  %div Email
+  %strong= @contact.try(:email) || '- -'
+
+%p
+  %div Teléfono
+  %strong= @contact.try(:phone) || '- -'
+
+%p
+  %div País
+  %strong= @contact.country.nil? ? '- -' : @contact.country.name
+
+%p
+  %div Mensaje
+  %strong= @contact.try(:content) || '- -'

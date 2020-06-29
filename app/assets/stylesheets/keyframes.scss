@@ -1,0 +1,23 @@
+@keyframes scrollUp {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+
+}
+
+@keyframes scrollDown {
+
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+
+}

@@ -1,0 +1,18 @@
+.home-1
+  .container
+    .row
+      .columns.small-24.large-8.logo
+        = link_to image_tag('cafeina.svg'), root_url
+      .columns.small-24
+        .row.content
+          .columns.small-24.large-12
+            %h1
+              We provide you tech innovation
+            %p
+              Queremos saber de tu proyecto, ¿Nos tomamos un café?
+            = link_to 'Let\'s talk', nil, class: 'btn blue'
+      .characters
+        .woman
+          = image_tag('pictures/cafeina-woman.svg')
+        .man
+          = image_tag('pictures/cafeina-man.svg')

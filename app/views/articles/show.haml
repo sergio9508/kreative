@@ -1,0 +1,39 @@
+= title "Nuestro blog - #{@article.name}"
+.article-1
+  .container
+    .row.align-spaced
+      .columns.small-24.large-20
+        %h1.blog-title
+          = @article.name
+        = image_tag @article.main_image.image.url
+        .blog-content
+          = raw @article.summary
+      .columns.small-24
+        %h3= t('site.articles1.text1')
+        %hr
+        .align.row.align-justify
+          - @articles.each do |article|
+            - unless article == @article
+              .featured.columns.small-24.medium-11.large-7
+                = link_to article_url(article) do
+                  = image_tag article.main_image.image.url
+                .content-other-articles
+                  .con
+                    = link_to article.category.to_s, article_url(article), class: 'category'
+                    %h2
+                      = link_to article.name, article_url(article), :class => 'blog-link'
+                    = raw article.content.split('</p>')[0]
+                  = link_to 'Leer post', article_url(article), class: 'align-left'
+      .column.small-24
+        #disqus_thread
+        
+:javascript
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://somos-cafeina.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+%noscript
+  Please enable JavaScript to view the
+  %a{ href: 'https://disqus.com/?ref_noscript' } comments powered by Disqus.

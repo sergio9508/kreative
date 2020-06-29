@@ -1,0 +1,39 @@
+= title 'Portfolio'
+.portfolios-title
+  .container
+    .title
+      %h1= t('site.portfolios1.text1')
+      %h2.h1
+        = t('site.portfolios1.text2')
+        %br
+          %span
+            = t('site.portfolios1.text3')
+    .content
+      %p
+        = raw t('site.portfolios1.text4')
+.portfolios
+  .container
+    .row.align-justify.post-row
+      - @portfolios.each do |portfolio|
+        .columns.small-24.medium-11.post
+          .portfolio-card
+            = link_to portfolio do
+              = image_tag portfolio.main_image.image.url
+            .content-card
+              - if portfolio.category?
+                = link_to portfolio.category.to_s, portfolio_url(portfolio), class: 'category'
+              %h2
+                = portfolio.name
+              %p
+                Cliente: #{portfolio.client} /
+                Marca: #{portfolio.brand}
+              = link_to 'Ver Proyecto', portfolio
+    = will_paginate @portfolios
+.foot-portfolio
+  .container
+    .line
+    .row
+      .columns.small-24
+        %p.text-center
+          = t('site.portfolios1.text5')
+        = link_to 'CONTÁCTENOS', '/#coffeetalk', class: 'contact'

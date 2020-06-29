@@ -1,0 +1,33 @@
+= title "Paginas web - #{@portfolio.name}"
+.arrows-1
+  .container
+    .arrows
+      - if @portfolio_order.after[0]
+        = link_to portfolio_url(@portfolio_order.after[0].slug.to_s) do
+          = image_tag 'service/Siguiente.svg'
+      - else
+        = image_tag 'service/Siguiente.svg'
+.portfolio-1
+  .container
+    .row.align-justify
+      .columns.large-16.medium-24.small-24
+        %h1
+          = @portfolio.name
+      .columns.large-13.medium-24.small-24.small-order-2.large-order-1
+        = raw @portfolio.description
+      .columns.large-9.medium-24.small-24.small-order-1.large-order-2
+        %center
+          .circle
+            - if @portfolio.cover.image.present?
+              = image_tag @portfolio.cover.image.url(:medium)
+.portfolio-2
+  .container
+    - if @portfolio.images.any?
+      .row.align-justify.portfolio-gallery
+        - @portfolio.images.order(:priority).each do |image|
+          %figure
+            = link_to image.image.url, data: { size: "#{image.image_width}x#{image.image_height}" } do
+              = image_tag image.image.url(:medium)
+            = render partial: 'layouts/application/photoswipe'
+            :javascript
+              initPhotoSwipeFromDOM('.portfolio-gallery')

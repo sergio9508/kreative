@@ -1,0 +1,35 @@
+.line-header
+%header
+  .header-service
+    .container
+      .logo.animated.pulse
+        = link_to image_tag('cafeina.svg', alt: 'cafeina-digital-studio'), root_url, rel: 'canonical'
+      .menu-header.animated.bounceInRight
+        .hamburger
+          .line
+          .line
+          .line
+      %nav
+        %ul.nav-links.animated.bounceInRight
+          %li
+            - if request.path.match('/services') || request.path.match('/service_categories')
+              = link_to 'Servicios', services_url, class: 'current'
+            - else
+              = link_to 'Servicios', services_url
+          %li
+            - if request.path.match? '/abouts'
+              = link_to 'Nosotros', abouts_url, class: 'current'
+            - else
+              = link_to 'Nosotros', abouts_url
+          %li
+            - if request.path.match? '/portfolios'
+              = link_to 'Portafolio', portfolios_url, class: 'current'
+            - else
+              = link_to 'Portafolio', portfolios_url
+          %li
+            - if request.path.match? '/articles'
+              = link_to 'Blog', articles_url, class: 'current'
+            - else
+              = link_to 'Blog', articles_url
+          %li
+            = link_to 'Contact', '/#coffeetalk'

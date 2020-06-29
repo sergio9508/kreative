@@ -1,0 +1,2 @@
+$("#add").html("<%= escape_javascript(render partial: 'concerns/latte/form') %>").fadeIn()
+$("#add").find("*").filter(":input:visible:first").focus()

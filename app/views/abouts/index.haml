@@ -1,0 +1,65 @@
+= title 'Conoce sobre nosotros'
+.about-1
+  .container
+    .row.align-justify
+      .columns.small-24.large-11
+        %h1
+          = t('site.about1.text1')
+        %h2.h1
+          = t('site.about1.text2')
+          %span
+            = t('site.about1.text3')
+          = t('site.about1.text4')
+          %hr
+      .columns.small-24.large-11
+        = image_tag About.cover.image.url
+
+      .columns.small-24.large-11
+        = raw About.description
+      .columns.small-11.large-11
+        %h2
+          = t('site.about2.text1')
+          %br
+            %span.count
+              = About.year
+            %br
+              %span.project
+                = t('site.about2.text2')
+                %br 
+                  = t('site.about2.text3')
+.about-2
+  .container
+    .row.align-justify
+      .columns.small-24.large-11
+        %center
+          = image_tag About.main_image.image.url
+      .columns.small-24.large-11
+        = raw About.summary
+
+.meet-us
+  .container
+    .row.align-justify
+      .columns.small-24.text-center
+        %h2
+          =t('site.about3.text1')
+      - @employees.each do |employee|
+        .columns.small-11.large-7
+          %center
+            = image_tag employee.main_image.image.url
+          %p.text-center.bold
+            = employee.first_name
+            = employee.last_name
+          %p.text-center
+            = employee.job
+          = link_to "@#{employee.first_name}#{employee.last_name}", employee.linkedin, target: 'blank', class:'linkedin'
+
+- if @brands.any?
+  .home-4.blank
+    .row.text-center
+      .columns.small-24.animated{ data: { anim: 'bounceInRight' } }
+        %h2.brand-trust= t('site.home4.text1')
+    .marquee
+      .brand.animated{ data: { anim: 'bounceInUp' } }
+        - @brands.each do |brand|
+          %center
+            = image_tag brand.main_image.image.url, title: brand.name

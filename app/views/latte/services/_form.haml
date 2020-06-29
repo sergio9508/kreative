@@ -1,0 +1,41 @@
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :enabled
+    .columns.small-24.medium-18= f.check_box :enabled, class: 'decorated-checkbox box'
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :priority
+    .columns.small-24.medium-18= f.text_field :priority
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :name
+    .columns.small-24.medium-18= f.text_field :name
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :slug
+    .columns.small-24.medium-18= f.text_field :slug, disabled: (f.object.new_record? ? true : nil)
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :service_name
+    .columns.small-24.medium-18= f.cktext_area :service_name, ckeditor: { height: 100 }
+
+.control
+  .row.align-middle.align-justify
+    .columns.small-24.medium-5= f.label :description
+    .columns.small-24.medium-18= f.text_area :description
+
+
+- if f.object.class.respond_to?(:main_image?)
+  = f.fields_for :main_image do |ff|
+    = render partial: 'latte/main_images/form', locals: { f: ff }
+
+- if f.object.class.respond_to?(:taggable?)
+  .control
+    .row.align-middle.align-justify
+      .columns.small-24.medium-5= f.label :tagging
+      .columns.small-24.medium-18
+        = f.text_field :tagging, value: f.object.plain_tagging, placeholder: 'Agregar tags', class: 'tagify'

@@ -1,0 +1,58 @@
+.selectize-control.multi
+.selectize-input [data-value], {
+  background: $blue;
+  border: 1px darken($blue, 10%) solid;
+  border-radius: .2em;
+  box-shadow: none;
+  font-size: 1em;
+  padding: .3em .5em;
+  text-shadow: none;
+}
+
+.selectize-control.multi
+.selectize-input [data-value].active {
+  background: darken($blue, 10%);
+  border: 1px darken($blue, 20%) solid;
+}
+
+.selectize-control.plugin-remove_button [data-value] .remove {
+  border: 0;
+  font-size: 1.4em;
+  top: 2px;
+  width: 24px;
+}
+
+.selectize-control.plugin-remove_button [data-value] .remove:hover {
+  background: transparent;
+}
+
+.selectize-input,
+.selectize-input.focus,
+.selectize-input.has-items {
+  border: 0;
+  border-bottom: 1px darken($white, 20%) solid;
+  border-radius: 0;
+  box-shadow: none;
+  padding: .3em;
+}
+
+.selectize-input.focus {
+  border-bottom-color: $blue;
+}
+
+.selectize-dropdown .create {
+  padding: .5em;
+}
+
+.selectize-control.single .selectize-input {
+  background: $white;
+  border-bottom: 1px darken($white, 20%) solid;
+  box-shadow: none;
+  height: 2.6em;
+  overflow: hidden;
+
+  > * {
+    height: 2em;
+    line-height: 2;
+  }
+}
