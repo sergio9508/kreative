@@ -2,7 +2,7 @@
   .container
     .menu-home
       .logo.animated.bounceInLeft
-        = link_to image_tag('cafeina.svg', alt: 'cafeina-digital-studio'), root_url, rel: 'canonical'
+        = link_to image_tag('logo.jpg', alt: 'cafeina-digital-studio'), root_url, rel: 'canonical'
       .menu-header.animated.bounceInRight
         .hamburger
           .line
@@ -32,69 +32,6 @@
           = image_tag 'pictures/cafeina-man.svg', alt: 'cafeina-digital-studio-man'
 
 .home-2
-  .container
-    .row.align-middle.align-justify
-      .columns.small-24.large-13
-        .card
-          .sup-page
-            %ul{ 'class' => 'tab-img' }
-              %li
-                .bottom.red
-              %li
-                .bottom.yellow
-              %li
-                .bottom.green
-              %li{ 'class' => 'tab-search' }
-                .search
-            %ul{ 'class' => 'tabs' }
-              %li{ 'data-tab' => 'tab-tech', class: 'current' }
-                digital tech
-              %li{ 'data-tab' => 'tab-marketing' }
-                marketing
-              %li{ 'data-tab' => 'tab-app' }
-                app
-              %li.plus{ 'data-tab' => 'none' }
-                +
-          .page-content
-            .row.align-middle.tab-content.current#tab-tech
-              .columns.small-24.medium-8.icon
-                = image_tag 'icons/icon-robot.svg', alt: 'robot-cafeina-digital-studio', height: '', width: '', class: ''
-              .columns.small-24.medium-16
-                %h2= raw t('site.home2.text1')
-                .row
-                  - @service.each do |service|
-                    - if service.service.name.eql?('Desarrollo Web')
-                      .columns.small-12
-                        %p
-                          = link_to service.name.to_s, service
-            .row.align-middle.tab-content#tab-marketing
-              .columns.small-24.medium-8.icon
-                = image_tag 'icons/icon-like.svg', alt: 'like-cafeina-digital-studio'
-              .columns.small-24.medium-16
-                %h2= raw t('site.home2.text2')
-                .row
-                  - @service.each do |service|
-                    - if service.service.name.eql?('Marketing Digital')
-                      .columns.small-12
-                        %p
-                          = link_to service.name.to_s, service_category_url(service)
-            .row.align-middle.tab-content#tab-app
-              .columns.small-24.medium-8.icon
-                = image_tag 'icons/icon-phone.svg', alt: 'phone-cafeina-digital-studio'
-              .columns.small-24.medium-16
-                %h2= raw t('site.home2.text3')
-                .row
-                  - @service.each do |service|
-                    - if service.service.name.eql?('Desarrollo app móvil')
-                      .columns.small-12
-                        %p
-                          = link_to service.name, service_category_url(service)
-      .columns.small-24.large-11.align-self-top
-        .information.animated.bounceInLreft
-          %h3= t('site.home2.text4')
-          = raw @home.services
-          = link_to 'Quiero una consultoría', '#coffeetalk', class: 'btn white', rel: 'nofollow'
-
 - if @projects.any?
   .home-3
     .container

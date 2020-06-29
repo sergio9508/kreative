@@ -7,7 +7,6 @@ class CreatePortfolios < ActiveRecord::Migration[5.0]
     Portfolio.create_translation_table! name: :string,
                                         description: :text,
                                         type: :string,
-                                        content: :text,
                                         slug: {
                                                 type: :string,
                                                 index: true,

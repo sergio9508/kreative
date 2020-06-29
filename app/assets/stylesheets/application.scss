@@ -5,13 +5,13 @@ $white: #fff;
 $gray: #e5e5e5;
 $dark-gray: #ccc;
 $dark: #000;
-$orange: #ff4300;
-$light-orange: #e54e40;
+$orange: #32e0c4;
+$light-orange: #32e0c4;
 $red: #f00;
 $yellow: #fbb03b;
 $green: #8cc63f;
 $dark-blue: #013e53;
-$purple: #7c2ae8;
+$purple: #393e46;
 $blue: #039eb0;
 $skyblue: #41abb5;
 $c1: #00dbf4;
@@ -819,7 +819,7 @@ footer {
   }
 
   .logo {
-    width: 24em;
+    width: 12em;
 
     @media #{$lar} {
       width: 20em;
@@ -871,10 +871,10 @@ footer {
   }
 
   .logo {
-    width: 26em;
+    width: 18em;
 
     @media #{$lar} {
-      width: 20em;
+      width: 15em;
     }
 
     @media #{$mobile} {
