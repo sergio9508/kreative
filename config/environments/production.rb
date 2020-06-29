@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-Rails.application.routes.default_url_options[:host] = 'www.somoscafeina.com'
+Rails.application.routes.default_url_options[:host] = 'https://kreative-123.herokuapp.com'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -30,7 +30,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'https://www.somoscafeina.com'
+  config.action_controller.asset_host = 'https://kreative-123.herokuapp.com/'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -86,5 +86,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'www.somoscafeina.com' }
+  config.action_mailer.default_url_options = { host: 'kreative-123.herokuapp.com/' }
 end
