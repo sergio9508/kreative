@@ -24,6 +24,7 @@ $mobile:  'screen and (max-width: 720px)';
 $tab:     'screen and (max-width: 1023px)';
 $med:     'screen and (max-width: 1024px)';
 $lar:     'screen and (max-width: 1439px)';
+$laptop:  'screen and (max-width: 1366px)';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,900&display=swap');
 @import 'foundation';
@@ -824,7 +825,9 @@ footer {
     @media #{$lar} {
       width: 20em;
     }
-
+    @media #{$laptop} {
+      width: 12em;
+    }
     @media #{$mobile} {
       width: 8em;
       padding: 0 2em 0 0 !important;
@@ -876,6 +879,9 @@ footer {
 
     @media #{$lar} {
       width: 15em;
+    }
+    @media #{$laptop} {
+      width: 12em;
     }
 
     @media #{$mobile} {
