@@ -100,18 +100,6 @@ $(document).ready ->
           return
           ), 100
       return
-  
-  
-Tawk_API = Tawk_API or {}
-Tawk_LoadStart = new Date
-do ->
-  s1 = document.createElement('script')
-  s0 = document.getElementsByTagName('script')[0]
-  s1.async = true
-  s1.src = 'https://embed.tawk.to/5e7cd5c035bcbb0c9aaab179/default'
-  s1.charset = 'UTF-8'
-  s1.setAttribute 'crossorigin', '*'
-  s0.parentNode.insertBefore s1, s0
 
 # jQuery ->
 #   console.log $('.pagination')
