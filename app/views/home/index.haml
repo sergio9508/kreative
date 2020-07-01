@@ -101,8 +101,9 @@
 
 .home-4.animated
   .row.text-center
-    .columns.small-24
-      %h2= t('site.home4.text2')
+    -if @tecnologies.any?
+      .columns.small-24
+        %h2= t('site.home4.text2')
   .marquee
     .brand
       - 3.times do
