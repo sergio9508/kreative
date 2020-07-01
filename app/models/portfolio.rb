@@ -51,7 +51,7 @@ class Portfolio < ApplicationRecord
   # Globalized columns
   translates :name, :description, :slug, :type
 
-  enum types: [:landing, :website, :app, :socialmedia]
+  enum types: [:marketing]
   ##
   # Validations
   validates :name, presence: true
