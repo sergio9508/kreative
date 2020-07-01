@@ -826,6 +826,7 @@ footer {
     }
 
     @media #{$mobile} {
+      width: 8em;
       padding: 0 2em 0 0 !important;
     }
   }
@@ -878,6 +879,7 @@ footer {
     }
 
     @media #{$mobile} {
+      width: 10em;
       padding: 0 2em 0 0 !important;
     }
   }
