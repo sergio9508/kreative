@@ -27,9 +27,4 @@
             - else
               = link_to 'Portafolio', portfolios_url
           %li
-            - if request.path.match? '/articles'
-              = link_to 'Blog', articles_url, class: 'current'
-            - else
-              = link_to 'Blog', articles_url
-          %li
             = link_to 'Contact', '/#coffeetalk'

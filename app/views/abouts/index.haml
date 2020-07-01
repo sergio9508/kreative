@@ -31,8 +31,9 @@
   .container
     .row.align-justify
       .columns.small-24.large-11
-        %center
-          = image_tag About.main_image.image.url
+        - if !About.main_image.image.url.match("missing")
+          %center
+            = image_tag About.main_image.image.url
       .columns.small-24.large-11
         = raw About.summary
 

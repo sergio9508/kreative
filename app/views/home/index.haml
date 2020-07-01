@@ -13,7 +13,6 @@
           %li= link_to 'Servicios', services_url, rel: 'canonical'
           %li= link_to 'Nosotros', abouts_url, rel: 'canonical'
           %li= link_to 'Portafolio', portfolios_url, rel: 'canonical'
-          %li= link_to 'Blog', articles_url, rel: 'canonical'
           %li= link_to 'Contact', '#coffeetalk', class: 'current', rel: 'nofollow'
 
 .home-1
@@ -71,23 +70,6 @@
           - @brands.each do |brand|
             %center
               = image_tag brand.main_image.image.url, title: brand.name
-
-.home-5
-  .container
-    .row.align-justify
-      .columns.small-24
-        %h2.text-center.animated.bounceInRight
-          Blog
-      - @articles.each do |article|
-        .columns.large-12.small-24.animated.blog.bounceInRight
-          .article.animated.bounceInLeft
-            = image_tag article.main_image.image.url
-            = link_to article.category.to_s, article_url(article), class: 'category'
-            %h2= article.name
-            .separated
-              - if article.content?
-                = raw article.content.split('</p>')[0]
-            = link_to 'Leer post', article_url(article), class: 'align-left'
 
 .home-6.animated.bounceInRight
   .container
